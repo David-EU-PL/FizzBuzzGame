@@ -4,27 +4,18 @@ namespace FizzBuzzGame
 {
     class Program
     {
-        static int Main(string[] args)
+        static void Main(string[] args)
         {
-            Console.WriteLine("Witaj w prostej grze FizzBuzz. \nPodając liczbę sprawdzimy czy jest podzielna przez 3 bez reszty i/lub przez 5 bez reszty albo nie nie spełnia obu warunków. \nPodaj proszę dowolną liczbę: ");
-            var number = GetNumber();
-            
-            if (number % 3 == 0 && number % 5 == 0)
+            Console.WriteLine("Witaj w prostej grze FizzBuzz. \nPodając liczbę sprawdzimy czy jest podzielna przez 3 bez reszty 'Fizz' lub przez 5 bez reszty 'Buzz'albo spełnia oba warunki 'FizzBuzz'. \nW przeciwnym wypadku liczba zostanie zwrócona.");
+            var fizzBuzz = new FizzBuzz();
+
+            while (true)
             {
-                Console.WriteLine("\nFizzBuzz");
+                Console.WriteLine("\nPodaj proszę dowolną liczbę: ");
+                var number = GetNumber();
+                Console.WriteLine(fizzBuzz.GetOutput(number));
+                Console.WriteLine();
             }
-            else
-            {
-                if (number % 3 == 0)
-                {
-                    Console.WriteLine("\nFizz");
-                }
-                if (number % 5 == 0)
-                {
-                    Console.WriteLine("\nBuzz");
-                }
-            }
-            return number;
         }
 
         private static int GetNumber()
